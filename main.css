@@ -63,4 +63,34 @@
 
 .box-holder-content {
   margin: auto;
+}
+
+.school {
+  padding: 20px;
+  direction: rtl;
+  margin-right: 20px;
+}
+
+.school .school-box {
+  padding: 10px;
+}
+
+.school:hover .school-box {
+  background-color: #eee;
+}
+
+/* Theme Version: 1.0 */
+/*! Website Theme Main Color Is: red*/
+/*! Website Theme Alternate Color Is: blue */
+.class {
+  color: red;
+}
+
+.class {
+  color: red;
+}
+
+.box {
+  background-color: #EEE;
+  text-align: center;
 }/*# sourceMappingURL=main.css.map */
