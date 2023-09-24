@@ -1,0 +1,126 @@
+// assim 1 
+@mixin arrow($variable) {
+  content: "";
+  position: absolute;
+  border: 20px solid transparent;
+
+  @if $variable == "top" {
+    left: 50%;
+    transform: translateX(-50%);
+    top: -40px;
+    border-bottom-color: red;
+  } @else if $variable == "bottom" {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -40px;
+    border-top-color: red;
+  } @else if $variable == "left" {
+    top: 50%;
+    transform: translateY(-50%);
+    left: -40px;
+    border-right-color: red;
+  } @else {
+    top: 50%;
+    transform: translateY(-50%);
+    right: -40px;
+    border-left-color: red;
+  }
+}
+
+.element {
+  &:before {
+    @include arrow("top");
+  }
+}
+
+.element {
+    &:before {
+      @include arrow("right");
+    }
+  }
+
+  .element {
+    &:before {
+      @include arrow("bottom");
+    }
+  }
+
+  .element {
+    &:before {
+      @include arrow("left");
+    }
+  }
+
+
+  //assim 4 & 5
+  $init: 1;
+   @while $init <= 5 {
+    .circle-#{ 100 * $init } {
+        width: 100 * $init ;
+        height: 100 * $init ;
+        border-radius: (100 * $init ) / 2;   
+    }
+    $init: $init +1;
+   }
+
+  $init: 1;
+  @for $i from 1 through 5 {
+    .circle-#{ 99 + $init } {
+        width: 99 + $init ;
+        height: 99 + $init ;
+        border-radius: (99 + $init ) / 2;   
+    }
+    $init: 100 + $init ;
+  }
+
+  // assim 3
+
+  $names:
+  "books" 20px red 18,
+  "games" 30px green 18,
+  "dvds" 20px blue;
+
+  @each $class, $padding, $color, $font in $names {
+    .#{$class} {
+        padding: #{$padding};
+        border-bottom: 2px solid #{$color};
+        color: #444;
+        @if $font != ""{
+            font-size: 16px; 
+    }@else {
+        font-size: $font;
+    }
+  }
+} 
+// assim 2
+
+$grid_col: 16;
+@for $i from 1 through $grid_col {
+    .col-#{$i}{
+        width: percentage($i / $grid_col);
+    }
+}
+
+// assim 7
+
+
+// Write Mixin Code Here
+ @mixin flex-center($para){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $para; 
+ }
+
+// Using 
+.box-one {
+    @include flex-center(400px);
+  }
+  .box-two {
+    @include flex-center;
+  }
+  
+/// assim 6
+.class {
+  color: black;
+}
